@@ -1,5 +1,7 @@
 package com.firstproject.userdept.entities;
 
+import java.io.Serializable;
+
 import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Entity;
@@ -9,11 +11,11 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_department")
-public class Department {
-	
+public class Department implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	private String name;
 	
 	public Department() {
@@ -34,7 +36,5 @@ public class Department {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
 	
 }
